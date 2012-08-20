@@ -106,6 +106,23 @@ public class CQLBetweenPredicateTest {
     }
     
     /**
+     * https://jira.codehaus.org/browse/GEOT-4211
+     * @throws CQLException 
+     */
+    @Test
+    public void testGEOT4211() throws CQLException{
+    	
+    	Filter resultFilter = CQL.toFilter("MMSI BETWEEN 201000002 AND 201999999");
+// WORKS    	Filter resultFilter = CQL.toFilter("ATTR BETWEEN 20100000 AND 20199999");
+
+        Assert.assertTrue("PropertyIsBetween filter was expected",
+            resultFilter instanceof PropertyIsBetween);
+
+        PropertyIsBetween filter = (PropertyIsBetween) resultFilter;
+        Expression property = filter.getExpression();
+    	
+    }
+    /**
      * Execute the test with the provided sample
      * 
      * @param samplePredicate
