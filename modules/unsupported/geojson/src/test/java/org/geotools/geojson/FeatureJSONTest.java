@@ -66,9 +66,14 @@ public class FeatureJSONTest extends GeoJSONTestSupport {
     public void testFeatureWrite() throws Exception {
         
         StringWriter writer = new StringWriter();
+        fjson.setEncodeFeatureCRS(true); // FIXME HACKING
         fjson.writeFeature(feature(1), writer);
         
+        System.out.println(writer.toString()); // FIXME HACKING
+        
         assertEquals(strip(featureText(1)), writer.toString());
+        
+        
     }
     
     public void testWriteReadNoProperties() throws Exception {
