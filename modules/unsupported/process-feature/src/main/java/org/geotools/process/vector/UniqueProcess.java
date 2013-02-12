@@ -40,7 +40,11 @@ import org.opengis.util.ProgressListener;
  * @source $URL$
  */
 @DescribeProcess(title = "Unique", description = "Returns the unique values of a given attribute in a feature collection.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/UniqueProcess.java
 public class UniqueProcess implements VectorProcess {
+=======
+public class UniqueProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/UniqueProcess.java
 
     @DescribeResult(name = "result", description = "Feature collection with an attribute containing the unique values")
     public SimpleFeatureCollection execute(

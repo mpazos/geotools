@@ -303,8 +303,12 @@ public class DefaultWFSStrategy implements WFSStrategy {
                         filterCapabilities.getVersion(),
                         filterCapabilities.getScalarCapabilities(),
                         filterCapabilities.getSpatialCapabilities(),
+<<<<<<< HEAD
                         null,
                         filterCapabilities.getTemporalCapabilities());
+=======
+                        null);
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
                 Capabilities capabilitiesWithoutId = new Capabilities();
                 capabilitiesWithoutId.addAll(filterCapabilitiesWithoutId);

@@ -30,7 +30,11 @@ import org.geotools.data.simple.SimpleFeatureCollection;
  * @source $URL$
  */
 @DescribeProcess(title = "Count Features", description = "Computes the number of features in a feature collection.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/CountProcess.java
 public class CountProcess implements VectorProcess {
+=======
+public class CountProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/CountProcess.java
     /** The functions this process can handle */
     public enum AggregationFunction {
         Average, Max, Median, Min, StdDev, Sum;

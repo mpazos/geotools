@@ -53,7 +53,11 @@ import com.vividsolutions.jts.geom.Geometry;
  * The data layer must be a point layer, the reference layer must be a polygonal one
  */
 @DescribeProcess(title = "Vector Zonal Statistics", description = "Computes statistics for the distribution of a given attribute in a set of polygonal zones.  Input must be points.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/VectorZonalStatistics.java
 public class VectorZonalStatistics implements VectorProcess {
+=======
+public class VectorZonalStatistics implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/VectorZonalStatistics.java
 
     @DescribeResult(name = "statistics", description = "A feature collection with the attributes of the zone layer (prefixed by 'z_') and the statistics fields count,min,max,sum,avg,stddev")
     public SimpleFeatureCollection execute(

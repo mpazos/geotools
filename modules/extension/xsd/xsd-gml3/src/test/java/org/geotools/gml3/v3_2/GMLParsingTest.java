@@ -125,6 +125,37 @@ public class GMLParsingTest extends TestCase {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Parse an srsName from a gml:Point.
+     * 
+     * @param srsName the srsName attribute on the gml:Point
+     * @return the parsed CoordinateReferenceSystem
+     */
+    private static CoordinateReferenceSystem parsePointSrsname(String srsName) {
+        Parser parser = new Parser(new GMLConfiguration());
+        String text = "<gml:Point " //
+                + "xmlns:gml=\"http://www.opengis.net/gml/3.2\" " //
+                + "srsName=\"" + srsName + "\">" //
+                + "<gml:pos>1 2</gml:pos>" //
+                + "</gml:Point>";
+        try {
+            Point point = (Point) parser.parse(new StringReader(text));
+            return (CoordinateReferenceSystem) point.getUserData();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Test parsing of an srsName in EPSG code format.
+     */
+    public void testParseEpsgSrsname() throws Exception {
+        assertEquals(CRS.decode("EPSG:4326"), parsePointSrsname("EPSG:4326"));
+    }
+
+    /**
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
      * Test parsing of an srsName in OGC HTTP URL format.
      */
     public void testParseOgcHttpUrlSrsname() throws Exception {

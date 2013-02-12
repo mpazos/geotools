@@ -2249,7 +2249,11 @@ public class StreamingRenderer implements GTRenderer {
                  Envelope bounds = (Envelope) renderingQuery.getFilter().accept(ExtractBoundsFilterVisitor.BOUNDS_VISITOR, null);
                  Filter bbox = new FastBBOX(filterFactory.property(""), bounds, filterFactory);
                  optimizedQuery = new Query(null, bbox);
+<<<<<<< HEAD
                  optimizedQuery.setHints(layerQuery.getHints());
+=======
+                 optimizedQuery.setHints(renderingQuery.getHints());
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
             }
             
             // grab the original features
@@ -2262,7 +2266,7 @@ public class StreamingRenderer implements GTRenderer {
         } 
         
         // null safety, a transformation might be free to return null
-        if(result == null) {
+         if(result == null) {
             return null;
         }
         

@@ -52,7 +52,11 @@ import com.vividsolutions.jts.geom.Polygon;
  * be a point layer, the reference layer must be a polygonal one"
  */
 @DescribeProcess(title = "Point Buffers", description = "Returns a collection of circular buffer polygons with specified radii centered on a given point")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/PointBuffers.java
 public class PointBuffers implements VectorProcess {
+=======
+public class PointBuffers implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/PointBuffers.java
 
     @DescribeResult(name = "buffers", description = "Features for the circular buffer polygons around the point, with attributes geom and radius")
     public SimpleFeatureCollection execute(

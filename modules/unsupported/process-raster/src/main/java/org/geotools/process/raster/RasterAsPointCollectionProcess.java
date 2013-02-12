@@ -63,7 +63,11 @@ import com.vividsolutions.jts.geom.Point;
  * @source $URL$
  */
 @DescribeProcess(title = "Raster As Point Collection", description = "Returns a collection of point features for the pixels of a raster.  The band values are provided as attributes.")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/RasterAsPointCollectionProcess.java
 public class RasterAsPointCollectionProcess implements RasterProcess {
+=======
+public class RasterAsPointCollectionProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/RasterAsPointCollectionProcess.java
 
     @DescribeResult(name = "result", description = "Point features")
     public SimpleFeatureCollection execute(

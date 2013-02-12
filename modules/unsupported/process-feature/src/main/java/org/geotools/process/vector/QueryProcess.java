@@ -36,7 +36,11 @@ import org.opengis.filter.Filter;
  *
  * @source $URL$
  */
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/QueryProcess.java
 public class QueryProcess implements VectorProcess {
+=======
+public class QueryProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/QueryProcess.java
     @DescribeResult(name = "result", description = "The filtered feature collection")
     public SimpleFeatureCollection execute(
             @DescribeParameter(name = "features", description = "Input feature collection") SimpleFeatureCollection features,

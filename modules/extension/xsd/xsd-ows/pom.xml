@@ -16,7 +16,11 @@
   <parent>
     <groupId>org.geotools.xsd</groupId>
     <artifactId>xsd</artifactId>
+<<<<<<< HEAD
     <version>9-SNAPSHOT</version>
+=======
+    <version>8.6</version>
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
   </parent>
   
   <!-- =========================================================== -->
@@ -71,7 +75,11 @@
     <dependency>
       <groupId>org.geotools.ogc</groupId>
       <artifactId>net.opengis.ows</artifactId>
+<<<<<<< HEAD
       <version>9-SNAPSHOT</version>
+=======
+      <version>8.6</version>
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
     </dependency>
     <dependency>
       <groupId>org.geotools.xsd</groupId>

@@ -17,8 +17,16 @@
 package org.geotools.jdbc;
 
 import java.sql.Connection;
+<<<<<<< HEAD
 import java.util.NoSuchElementException;
 
+=======
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import org.geotools.data.DefaultQuery;
+import org.geotools.data.DefaultTransaction;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 import org.geotools.data.Query;
 import org.geotools.data.DefaultTransaction;
 import org.geotools.data.QueryCapabilities;

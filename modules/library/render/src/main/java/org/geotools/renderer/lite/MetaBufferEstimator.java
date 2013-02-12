@@ -287,6 +287,7 @@ public class MetaBufferEstimator extends FilterAttributeExtractor implements Sty
             for (GraphicalSymbol gs : gr.graphicalSymbols()) {
                 if(gs instanceof ExternalGraphic) {
                     ExternalGraphic eg = (ExternalGraphic) gs;
+<<<<<<< HEAD
                     Icon icon = null;
                     if(eg.getInlineContent() != null) {
                         icon = eg.getInlineContent();
@@ -306,8 +307,39 @@ public class MetaBufferEstimator extends FilterAttributeExtractor implements Sty
                                 icon = it.next().getIcon(null, expanded, eg.getFormat(), imageSize);
                             } catch(Exception e) {
                                 LOGGER.log(Level.FINE, "Error occurred evaluating external graphic", e);
+=======
+                    String location = eg.getLocation().toExternalForm();
+                    // expand embedded cql expression
+                    Expression expanded = ExpressionExtractor.extractCqlExpressions(location);
+                    // if not a literal there is an attribute dependency
+                    if(!(expanded instanceof Literal)) {
+                        estimateAccurate = false;
+                        return;
+                    }
+                    
+                    Iterator<ExternalGraphicFactory> it  = DynamicSymbolFactoryFinder.getExternalGraphicFactories();
+                    while(it.hasNext()) {
+                        try {
+
+                            Icon icon = it.next().getIcon(null, expanded, eg.getFormat(), imageSize);
+                            if(icon != null) {
+                                int size = Math.max(icon.getIconHeight(), icon.getIconWidth());
+                                if(size > buffer) {
+                                    buffer = size;
+                                }
+                                return;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
                             }
+                        } catch(Exception e) {
+                            LOGGER.log(Level.FINE, "Error occurred evaluating external graphic", e);
                         }
+                    }
+                } else if(gs instanceof Mark) {
+                    if(isSizeLiteral) {
+                        if(imageSize > buffer) {
+                            buffer = imageSize;
+                        }
+<<<<<<< HEAD
                     }
                     // evaluate the icon if found, if not SLD asks us to go to the next one
                     if(icon != null) {
@@ -324,6 +356,8 @@ public class MetaBufferEstimator extends FilterAttributeExtractor implements Sty
                         if(imageSize > buffer) {
                             buffer = imageSize;
                         }
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
                         return;
                     } else {
                         estimateAccurate = false;

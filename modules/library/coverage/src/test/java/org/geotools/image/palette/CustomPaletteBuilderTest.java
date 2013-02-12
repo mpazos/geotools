@@ -16,11 +16,18 @@
  */
 package org.geotools.image.palette;
 
+import it.geosolutions.imageio.utilities.ImageIOUtilities;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.IndexColorModel;
 import java.awt.image.RenderedImage;
+<<<<<<< HEAD
+=======
+import java.awt.image.SampleModel;
+import java.awt.image.WritableRaster;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 import javax.media.jai.ImageLayout;
 import javax.media.jai.JAI;
@@ -29,6 +36,10 @@ import javax.media.jai.ParameterBlockJAI;
 import javax.media.jai.PlanarImage;
 
 import junit.framework.Assert;
+<<<<<<< HEAD
+=======
+import junit.framework.TestCase;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 import org.geotools.image.ImageWorker;
 import org.junit.Test;
@@ -38,6 +49,10 @@ import org.junit.Test;
  * 
  * @author Simone Giannecchini, GeoSolutions SAS
  *
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
  */
 public class CustomPaletteBuilderTest extends Assert {
  

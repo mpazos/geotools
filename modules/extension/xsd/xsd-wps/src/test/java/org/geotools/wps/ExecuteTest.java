@@ -35,11 +35,17 @@ import net.opengis.wps10.OutputDataType;
 import net.opengis.wps10.ProcessOutputsType1;
 import net.opengis.wps10.Wps10Factory;
 
+import org.geotools.factory.CommonFactoryFinder;
 import org.geotools.xml.Encoder;
 import org.geotools.xml.Parser;
+<<<<<<< HEAD
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
+=======
+import org.opengis.filter.Filter;
+import org.opengis.filter.FilterFactory2;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 /**
  * 
@@ -119,4 +125,23 @@ public class ExecuteTest extends TestCase {
         assertEquals("states", typeName.getLocalPart());
         assertEquals("http://usa.org", typeName.getNamespaceURI());
     }
+<<<<<<< HEAD
+=======
+    
+    public void testFilterParserDelegate() throws Exception {
+        Parser p = new Parser(new WPSConfiguration());
+        ExecuteType exec = (ExecuteType) 
+            p.parse(getClass().getResourceAsStream("wpsExecuteFilterInline.xml"));
+        assertNotNull(exec);
+        assertEquals(1, exec.getDataInputs().getInput().size());
+
+        InputType in = (InputType) exec.getDataInputs().getInput().get(0);
+        ComplexDataType cd = in.getData().getComplexData();
+        assertNotNull(cd);
+        Filter filter = (Filter) cd.getData().get(0);
+        FilterFactory2 ff = CommonFactoryFinder.getFilterFactory2();
+        Filter expected = ff.or(ff.greaterOrEqual(ff.property("PERSONS"), ff.literal("10000000")), ff.lessOrEqual(ff.property("PERSONS"), ff.literal("20000000")));
+        assertEquals(expected, filter);
+    }
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 }

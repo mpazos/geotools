@@ -72,7 +72,13 @@ public class GeoTiffReaderTest extends Assert {
 	    @Test
 	    public void prjOverrideTesting1() throws IllegalArgumentException, IOException,
 	            FactoryException {
+<<<<<<< HEAD
 
+=======
+	        // NO override
+	        GeoTiffReader.OVERRIDE_INNER_CRS=true;
+	        
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 	        //
 	        // PRJ override
 	        //
@@ -89,6 +95,10 @@ public class GeoTiffReaderTest extends Assert {
 	        assertTrue(CRS.equalsIgnoreMetadata(coverage.getCoordinateReferenceSystem(), crs_));
 
 	        coverage.dispose(true);
+<<<<<<< HEAD
+=======
+	        
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 	    }
 	    
 		/**
@@ -101,7 +111,12 @@ public class GeoTiffReaderTest extends Assert {
 		    @Test
 		    public void prjOverrideTesting2() throws IllegalArgumentException, IOException,
 		            FactoryException {
+<<<<<<< HEAD
 
+=======
+		        // NO override
+		        GeoTiffReader.OVERRIDE_INNER_CRS=false;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 		        //
 		        // PRJ override
 		        //
@@ -111,10 +126,13 @@ public class GeoTiffReaderTest extends Assert {
 		        final File prj= TestData.file(GeoTiffReaderTest.class, "sample.prj");
 		        final CoordinateReferenceSystem crs_=new PrjFileReader(new FileInputStream(prj).getChannel()).getCoordinateReferenceSystem();
 
+<<<<<<< HEAD
 		        
 
 		        // NO override
 		        GeoTiffReader.OVERRIDE_INNER_CRS=false;
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 		        // getting a reader
 		        GeoTiffReader reader = new GeoTiffReader(noCrs);
@@ -129,7 +147,10 @@ public class GeoTiffReaderTest extends Assert {
 		        reader.dispose();
 
 		        coverage1.dispose(true);
+<<<<<<< HEAD
 		        System.setProperty(GeoTiffReader.OVERRIDE_CRS_SWITCH, "True");
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 		    }
     /**
      * Test for reading bad/strange geotiff files

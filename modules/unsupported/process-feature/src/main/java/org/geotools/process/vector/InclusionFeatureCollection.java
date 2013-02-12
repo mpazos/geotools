@@ -44,7 +44,11 @@ import com.vividsolutions.jts.geom.Geometry;
  * @author Pietro Arena - Sinergis
  */
 @DescribeProcess(title = "Inclusion of Feature Collections", description = "Returns a feature collection consisting of the features from the first collection which are spatially contained in at least one feature of the second collection.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/InclusionFeatureCollection.java
 public class InclusionFeatureCollection implements VectorProcess {
+=======
+public class InclusionFeatureCollection implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/InclusionFeatureCollection.java
     @DescribeResult(description = "Output feature collection")
     public SimpleFeatureCollection execute(
             @DescribeParameter(name = "first", description = "First feature collection") SimpleFeatureCollection firstFeatures,

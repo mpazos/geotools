@@ -105,6 +105,7 @@ import org.opengis.referencing.operation.MathTransform;
  *
  * @source $URL$
  */
+<<<<<<< HEAD
 @SuppressWarnings("rawtypes")
 public class ImageMosaicReader extends AbstractGridCoverage2DReader implements GridCoverageReader {
 
@@ -328,6 +329,9 @@ public class ImageMosaicReader extends AbstractGridCoverage2DReader implements G
         }
 
     }
+=======
+public class ImageMosaicReader extends AbstractGridCoverage2DReader implements GridCoverageReader {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 		/** Logger. */
 	private final static Logger LOGGER = org.geotools.util.logging.Logging.getLogger(ImageMosaicReader.class);
@@ -1097,6 +1101,7 @@ public class ImageMosaicReader extends AbstractGridCoverage2DReader implements G
 //        boolean manualSort=false;        
         Query query = new Query(rasterManager.granuleCatalog.getType().getTypeName());
         query.setPropertyNames(Arrays.asList(attribute));
+<<<<<<< HEAD
 //        final SortBy[] sortBy=new SortBy[]{
 //                	new SortByImpl(
 //                			FeatureUtilities.DEFAULT_FILTER_FACTORY.property(attribute),
@@ -1106,6 +1111,17 @@ public class ImageMosaicReader extends AbstractGridCoverage2DReader implements G
 //                query.setSortBy(sortBy);
 //        else
 //                manualSort=true;	
+=======
+        final SortBy[] sortBy=new SortBy[]{
+                	new SortByImpl(
+                			FeatureUtilities.DEFAULT_FILTER_FACTORY.property(attribute),
+                			SortOrder.ASCENDING
+                	)};
+        if(queryCapabilities.supportsSorting(sortBy))
+                query.setSortBy(sortBy);
+        else
+                manualSort=true;	
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
         final UniqueVisitor visitor= new UniqueVisitor(attribute);
         rasterManager.granuleCatalog.computeAggregateFunction(query, visitor);
         

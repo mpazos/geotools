@@ -148,7 +148,11 @@ public class Histogram extends BaseStatisticsOperationJAI {
 		}
 		return super.getProperties(data, crs, name, toCRS, sources, parameters);
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
     @Override
     protected ParameterBlockJAI prepareParameters(ParameterValueGroup parameters) {
         ParameterBlockJAI block = super.prepareParameters(parameters);
@@ -156,5 +160,9 @@ public class Histogram extends BaseStatisticsOperationJAI {
         block.setParameter("highValue", parameters.parameter("highValue").getValue());
         block.setParameter("numBins", parameters.parameter("numBins").getValue());
         return block;
+<<<<<<< HEAD
     }
+=======
+    }	
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 }

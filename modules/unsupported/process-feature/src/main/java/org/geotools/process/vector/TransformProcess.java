@@ -105,7 +105,11 @@ import com.vividsolutions.jts.simplify.TopologyPreservingSimplifier;
  * @source $URL$
  */
 @DescribeProcess(title = "Transform", description = "Computes a new feature collection from the input one by renaming, deleting, and computing new attributes.  Attribute values are specified as ECQL expressions in the form name=expression.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/TransformProcess.java
 public class TransformProcess implements VectorProcess {
+=======
+public class TransformProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/TransformProcess.java
     /**
      * Definition of an attribute used during transform
      * <p>

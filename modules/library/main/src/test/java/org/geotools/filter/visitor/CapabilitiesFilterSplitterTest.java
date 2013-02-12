@@ -24,8 +24,10 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.geotools.filter.Capabilities;
+import org.geotools.filter.capability.FilterCapabilitiesImpl;
 import org.junit.Before;
 import org.junit.Test;
+import org.opengis.filter.And;
 import org.opengis.filter.Filter;
 import org.opengis.filter.Id;
 import org.opengis.filter.Or;

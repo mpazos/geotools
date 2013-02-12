@@ -85,6 +85,7 @@ import org.geotools.geometry.Envelope2D;
 import org.geotools.geometry.GeneralEnvelope;
 import org.geotools.geometry.jts.JTS;
 import org.geotools.geometry.jts.ReferencedEnvelope;
+import org.geotools.image.ImageLayout2;
 import org.geotools.image.ImageWorker;
 import org.geotools.referencing.CRS;
 import org.geotools.referencing.operation.matrix.XAffineTransform;
@@ -98,7 +99,6 @@ import org.geotools.resources.image.ImageUtilities;
 import org.geotools.util.DateRange;
 import org.geotools.util.NumberRange;
 import org.geotools.util.SimpleInternationalString;
-import org.jaitools.imageutils.ImageLayout2;
 import org.jaitools.imageutils.ROIGeometry;
 import org.opengis.coverage.ColorInterpretation;
 import org.opengis.coverage.SampleDimension;
@@ -903,7 +903,11 @@ class RasterLayerResponse{
 
 			
 			// prepare eventual filter for filtering granules
+<<<<<<< HEAD
                         if(hasTime||hasElevation||hasFilter||hasAdditionalDomains )
+=======
+                        if(hasTime||hasElevation||hasFilter )
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
                         {
                                 //handle elevation indexing first since we then combine this with the max in case we are asking for current in time
                                 if (hasElevation){
@@ -989,6 +993,7 @@ class RasterLayerResponse{
                                             if(sizeTime==1)
                                                 query.setFilter(FeatureUtilities.DEFAULT_FILTER_FACTORY.and(query.getFilter(), timeFilter.get(0)));
                                 }
+<<<<<<< HEAD
                                 
                                 if (hasAdditionalDomains){
                                     final List<Filter> additionalFilter=new ArrayList<Filter>();
@@ -1006,6 +1011,9 @@ class RasterLayerResponse{
                                     query.setFilter(FeatureUtilities.DEFAULT_FILTER_FACTORY.and(query.getFilter(), FeatureUtilities.DEFAULT_FILTER_FACTORY.and(additionalFilter)));
                             }
 
+=======
+
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
                         }
 
             //

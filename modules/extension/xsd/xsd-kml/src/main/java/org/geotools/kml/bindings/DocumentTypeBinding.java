@@ -29,8 +29,12 @@ import javax.xml.namespace.QName;
 import org.opengis.feature.Feature;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
+<<<<<<< HEAD
 import org.geotools.data.DataUtilities;
 import org.geotools.data.collection.ListFeatureCollection;
+=======
+import org.picocontainer.MutablePicoContainer;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 import org.geotools.feature.FeatureCollection;
 import org.geotools.feature.FeatureIterator;
 import org.geotools.feature.simple.SimpleFeatureBuilder;

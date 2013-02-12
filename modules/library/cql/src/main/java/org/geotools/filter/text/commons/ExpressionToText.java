@@ -23,7 +23,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.SimpleTimeZone;
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 import java.util.TimeZone;
 
 import org.opengis.filter.expression.Add;
@@ -37,6 +40,12 @@ import org.opengis.filter.expression.NilExpression;
 import org.opengis.filter.expression.PropertyName;
 import org.opengis.filter.expression.Subtract;
 import org.opengis.temporal.Period;
+<<<<<<< HEAD
+=======
+
+import sun.util.calendar.CalendarSystem;
+import sun.util.calendar.Gregorian;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.io.WKTWriter;
@@ -56,6 +65,11 @@ import com.vividsolutions.jts.io.WKTWriter;
  */
 public class ExpressionToText implements ExpressionVisitor {
 	
+<<<<<<< HEAD
+=======
+	
+
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
     static private  StringBuilder asStringBuilder( Object extraData){
         if( extraData instanceof StringBuilder){
             return (StringBuilder) extraData;
@@ -71,6 +85,7 @@ public class ExpressionToText implements ExpressionVisitor {
      */
     public StringBuilder dateToText( Date date, StringBuilder output ){
         
+<<<<<<< HEAD
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz");
         formatter.setTimeZone(TimeZone.getTimeZone("GMT+00:00"));
 		String text = formatter.format(date);
@@ -81,6 +96,13 @@ public class ExpressionToText implements ExpressionVisitor {
 		output.append( text );        
 
 		return output;
+=======
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        String text = dateFormatter.format( date );
+        
+        output.append( text );        
+        return output;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
     }
     
 	

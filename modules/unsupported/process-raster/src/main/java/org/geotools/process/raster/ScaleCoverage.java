@@ -38,7 +38,11 @@ import org.opengis.parameter.ParameterValueGroup;
  * @source $URL$
  */
 @DescribeProcess(title = "Scale Coverage", description = "Returns a scaled and translated version of a given raster")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/ScaleCoverage.java
 public class ScaleCoverage implements RasterProcess {
+=======
+public class ScaleCoverage implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/ScaleCoverage.java
 
     private static final CoverageProcessor PROCESSOR = CoverageProcessor.getInstance();
     private static final Operation SCALE = PROCESSOR.getOperation("Scale");

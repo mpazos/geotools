@@ -339,9 +339,15 @@ public class ImageMosaicPostgisIndexTest extends OnlineTestCase {
 	protected void tearDownInternal() throws Exception {
 		
         // clean up disk
+<<<<<<< HEAD
         if (!ImageMosaicReaderTest.INTERACTIVE){        	
         	FileUtils.deleteDirectory( TestData.file(this, "watertemp4"));
         }		
+=======
+//        if (!ImageMosaicReaderTest.INTERACTIVE){        	
+//        	FileUtils.deleteDirectory( TestData.file(this, "watertemp4"));
+//        }		
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
         
         // delete tables
         Class.forName("org.postgresql.Driver");

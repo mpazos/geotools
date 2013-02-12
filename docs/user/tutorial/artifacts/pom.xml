@@ -11,7 +11,11 @@
  <url>http://maven.apache.org</url>
 
  <properties>
+<<<<<<< HEAD:docs/user/tutorial/artifacts/pom.xml
   <geotools.version>9-SNAPSHOT</geotools.version>
+=======
+  <geotools.version>8.6</geotools.version>
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:docs/user/tutorial/advanced/artifacts/pom.xml
  </properties>
 
   <dependencies>

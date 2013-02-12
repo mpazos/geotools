@@ -69,7 +69,11 @@ import org.opengis.util.ProgressListener;
  * @version $Id$
  */
 @DescribeProcess(title = "Polygon Extraction", description = "Extracts vector polygons from a raster, based on regions which are equal or in given ranges")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/PolygonExtractionProcess.java
 public class PolygonExtractionProcess implements RasterProcess {
+=======
+public class PolygonExtractionProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/PolygonExtractionProcess.java
 
     static {
         Registry.registerRIF(JAI.getDefaultInstance(), new VectorizeDescriptor(), new VectorizeRIF(), Registry.JAI_TOOLS_PRODUCT);

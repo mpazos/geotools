@@ -38,7 +38,11 @@ import org.geotools.styling.Style;
  * @source $URL$
  */
 @DescribeProcess(title = "Style Coverage", description = "Styles a raster using a given SLD and raster symbolizer.")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/StyleCoverage.java
 public class StyleCoverage implements RasterProcess {
+=======
+public class StyleCoverage implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/StyleCoverage.java
 
     @DescribeResult(name = "result", description = "Styled image")
     public GridCoverage2D execute(

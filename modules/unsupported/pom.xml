@@ -16,7 +16,11 @@
   <parent>
     <groupId>org.geotools</groupId>
     <artifactId>modules</artifactId>
+<<<<<<< HEAD
     <version>9-SNAPSHOT</version>
+=======
+    <version>8.6</version>
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
   </parent>
 
 
@@ -154,6 +158,7 @@
          <module>ogr</module>
        </modules>
      </profile>
+<<<<<<< HEAD
      <profile>
        <id>wfs-ng</id>
        <modules>
@@ -179,6 +184,9 @@
          <module>csw</module>
        </modules>
      </profile>
+=======
+     
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
      <profile>
        <id>unsupported</id>
        <activation>

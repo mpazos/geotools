@@ -1096,8 +1096,11 @@ public class Utils {
 
     public static final boolean DEFAULT_COLOR_EXPANSION_BEHAVIOR = false;
 
+<<<<<<< HEAD
     public static final TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("UTC");
 
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 	static final String DESCENDING_ORDER_IDENTIFIER = " D"; //SortOrder.DESCENDING.identifier();
 
 	static final String ASCENDING_ORDER_IDENTIFIER = " A"; //SortOrder.ASCENDING.identifier();

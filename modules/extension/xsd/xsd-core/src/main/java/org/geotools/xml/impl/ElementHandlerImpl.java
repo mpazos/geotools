@@ -228,6 +228,7 @@ public class ElementHandlerImpl extends HandlerImpl implements ElementHandler {
             ((NodeImpl)node).collapseWhitespace();
         }
         
+<<<<<<< HEAD
         if(isNil(element)) {
             value = null;
         } else {
@@ -247,6 +248,23 @@ public class ElementHandlerImpl extends HandlerImpl implements ElementHandler {
                 if (parser.getLogger().isLoggable(Level.FINE)) {
                     parser.getLogger().fine("Binding for " + element.getName() + " returned null");
                 }
+=======
+        ParseExecutor executor = new ParseExecutor(element, node, getParentHandler().getContext(),
+                parser);
+        parser.getBindingWalker()
+              .walk(element.getElementDeclaration(), executor, container(),
+            getParentHandler().getContext());
+
+        //cache the parsed value
+        value = executor.getValue();
+
+        if (value == null) {
+            //TODO: instead of continuuing, just remove the element from 
+            // the parent, or figure out if the element is 'optional' and 
+            // remove
+            if (parser.getLogger().isLoggable(Level.FINE)) {
+                parser.getLogger().fine("Binding for " + element.getName() + " returned null");
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
             }
         }
         

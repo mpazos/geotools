@@ -49,7 +49,11 @@ public class DefaultResourceLocator implements ResourceLocator {
             File f = DataUtilities.urlToFile(url);
             if (f != null && !f.isAbsolute()) {
                 //ok, relative url, if the file exists when we are ok
+<<<<<<< HEAD
                 if (!f.exists() && sourceUrl != null) {
+=======
+                if (!f.exists()) {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
                     URL relativeUrl = makeRelativeURL(f.getPath());
                     if (relativeUrl != null) {
                         f = DataUtilities.urlToFile(relativeUrl);

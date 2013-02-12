@@ -34,7 +34,11 @@ import org.opengis.referencing.crs.CoordinateReferenceSystem;
  * @source $URL$
  */
 @DescribeProcess(title = "Reproject Features", description = "Reprojects features into a supplied coordinate reference system.  Can also force a feature collection to have a given CRS.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/ReprojectProcess.java
 public class ReprojectProcess implements VectorProcess {
+=======
+public class ReprojectProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/ReprojectProcess.java
 
     @DescribeResult(name = "result", description = "Input feature collection")
     public SimpleFeatureCollection execute(

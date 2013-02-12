@@ -77,7 +77,11 @@ import org.opengis.util.ProgressListener;
  * @version $Id$
  */
 @DescribeProcess(title = "Contour", description = "Computes contour lines at specified intervals or levels for the values in a raster.")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/ContourProcess.java
 public class ContourProcess implements RasterProcess {
+=======
+public class ContourProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/ContourProcess.java
 
     private static final InternationalString NO_DATA = Vocabulary
             .formatInternational(VocabularyKeys.NODATA);

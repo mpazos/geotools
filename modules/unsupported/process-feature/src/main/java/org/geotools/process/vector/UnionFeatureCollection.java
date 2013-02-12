@@ -45,7 +45,11 @@ import org.opengis.feature.type.PropertyDescriptor;
  * @author Pietro Arena - Sinergis
  */
 @DescribeProcess(title = "Union Feature Collections", description = "Returns single feature collection containing all features from two input feature collections.  The output attribute schema is a combination of the attributes from the inputs.  Attributes with same name but different types will be converted to strings.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/UnionFeatureCollection.java
 public class UnionFeatureCollection implements VectorProcess {
+=======
+public class UnionFeatureCollection implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/UnionFeatureCollection.java
 
     static final String SCHEMA_NAME = "Union_Layer";
 

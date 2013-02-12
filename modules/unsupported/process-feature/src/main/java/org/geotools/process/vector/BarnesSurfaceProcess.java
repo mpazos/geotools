@@ -137,7 +137,11 @@ import com.vividsolutions.jts.geom.Geometry;
  */
 
 @DescribeProcess(title = "BarnesSurface", description = "Uses Barnes Analysis to compute an interpolated surface over a set of irregular data points.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/BarnesSurfaceProcess.java
 public class BarnesSurfaceProcess implements VectorProcess {
+=======
+public class BarnesSurfaceProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/surface/BarnesSurfaceProcess.java
 
     // no process state is defined, since RenderingTransformation processes must be stateless
     

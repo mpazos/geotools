@@ -163,8 +163,11 @@ class RasterLayerRequest {
 	private List<?> elevation;
 	
 	private Filter filter;
+<<<<<<< HEAD
 	
     private List<String> requestedAdditionalDomains; // For the moment, only support single element values
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 	/** Sort clause on shapefile attributes.*/
 	private String sortClause;

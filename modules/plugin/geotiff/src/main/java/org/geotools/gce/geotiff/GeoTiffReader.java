@@ -129,7 +129,11 @@ public class GeoTiffReader extends AbstractGridCoverage2DReader implements GridC
 	public static final String OVERRIDE_CRS_SWITCH = "org.geotools.gce.geotiff.override.crs";
 	
 	/** With this java switch I can control whether or not an external PRJ files takes precedence over the internal CRS definition*/
+<<<<<<< HEAD
 	static boolean OVERRIDE_INNER_CRS=Boolean.valueOf(System.getProperty(GeoTiffReader.OVERRIDE_CRS_SWITCH, "True"));
+=======
+	static boolean OVERRIDE_INNER_CRS=Boolean.valueOf(System.getProperty(GeoTiffReader.OVERRIDE_CRS_SWITCH, "False"));
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 	/** SPI for creating tiff readers in ImageIO tools */
 	private final static TIFFImageReaderSpi READER_SPI = new TIFFImageReaderSpi();

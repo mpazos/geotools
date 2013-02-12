@@ -11,7 +11,11 @@
  <url>http://maven.apache.org</url>
 
  <properties>
+<<<<<<< HEAD
   <geotools.version>9-SNAPSHOT</geotools.version>
+=======
+  <geotools.version>8.6</geotools.version>
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
  </properties>
 
  <dependencies>

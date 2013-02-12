@@ -16,8 +16,6 @@
  */
 package org.geotools.filter.text.commons;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -40,7 +38,6 @@ import org.opengis.filter.spatial.DWithin;
 import org.opengis.filter.spatial.DistanceBufferOperator;
 import org.opengis.filter.temporal.BinaryTemporalOperator;
 import org.opengis.filter.temporal.During;
-import org.opengis.temporal.Period;
 
 /**
  * 
@@ -272,7 +269,7 @@ public final class FilterToTextUtil {
 
 	public static Object buildBinaryTemporalOperator(final String temporalOperator, BinaryTemporalOperator filter, Object extraData) {
     	
-        LOGGER.finer("exporting " + temporalOperator);
+		LOGGER.finer("exporting " + temporalOperator);
 
         StringBuilder output = asStringBuilder(extraData);
 
@@ -291,7 +288,7 @@ public final class FilterToTextUtil {
 	public static Object buildDuring(During during, Object extraData) {
 
         LOGGER.finer("exporting DURING" );
-		
+
     	StringBuilder output = asStringBuilder(extraData);
 
         PropertyName propertyName = (PropertyName) during.getExpression1();
@@ -301,9 +298,18 @@ public final class FilterToTextUtil {
         output.append(" DURING ");
         
         Literal expr2 = (Literal) during.getExpression2();
+<<<<<<< HEAD
 
         expr2.accept(visitor, output);
 
         return output;
 	}
+=======
+        
+        expr2.accept(visitor, output);
+        
+        return output;
+	}
+	
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 }

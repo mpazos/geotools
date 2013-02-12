@@ -57,9 +57,15 @@ final class TestUtils extends Assert {
 			GeneralParameterValue[] values, String title,
 			final GridCoverage2D coverage, final Rectangle rect) {
 	    final RenderedImage image = coverage.getRenderedImage(); 
+<<<<<<< HEAD
 		if (ImageMosaicReaderTest.INTERACTIVE)
 			show(image, title);
 		else
+=======
+//		if (ImageMosaicReaderTest.INTERACTIVE)
+//			show(image, title);
+//		else
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 			PlanarImage.wrapRenderedImage(image).getTiles();
 		
 		if(values!=null)	
@@ -79,11 +85,19 @@ final class TestUtils extends Assert {
 		    assertEquals(image.getHeight(), rect.height);
 		}
 		
+<<<<<<< HEAD
 		if (!ImageMosaicReaderTest.INTERACTIVE){
 			// dispose stuff
 			coverage.dispose(true);
 			reader.dispose();
 		}
+=======
+//		if (!ImageMosaicReaderTest.INTERACTIVE){
+//			// dispose stuff
+//			coverage.dispose(true);
+//			reader.dispose();
+//		}
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 	}
 
 	/**

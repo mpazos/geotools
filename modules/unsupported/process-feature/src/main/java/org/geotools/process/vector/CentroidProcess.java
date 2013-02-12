@@ -47,7 +47,11 @@ import com.vividsolutions.jts.geom.Point;
  * @source $URL: http://svn.osgeo.org/geotools/trunk/modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/CentroidProcess.java $
  */
 @DescribeProcess(title = "Centroid", description = "Computes the geometric centroids of features")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/CentroidProcess.java
 public class CentroidProcess implements VectorProcess {
+=======
+public class CentroidProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/CentroidProcess.java
 
     @DescribeResult(name = "result", description = "Centroids of input features")
     public SimpleFeatureCollection execute(

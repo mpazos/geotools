@@ -77,7 +77,11 @@ import com.vividsolutions.jts.geom.impl.PackedCoordinateSequenceFactory;
  *
  */
 @DescribeProcess(title = "Point Stacker", description = "Aggregates a collection of points over a grid into one point per grid cell.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/PointStackerProcess.java
 public class PointStackerProcess implements VectorProcess {
+=======
+public class PointStackerProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/PointStackerProcess.java
 
     public static final String ATTR_GEOM = "geom";
     public static final String ATTR_COUNT = "count";
@@ -102,13 +106,19 @@ public class PointStackerProcess implements VectorProcess {
 
             // process parameters
             @DescribeParameter(name = "cellSize", description = "Grid cell size to aggregate to, in pixels") Integer cellSize,
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/PointStackerProcess.java
             @DescribeParameter(name = "normalize", description = "Indicates whether to add fields normalized to the range 0-1.", defaultValue="false") Boolean argNormalize,
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/PointStackerProcess.java
 
             // output image parameters
             @DescribeParameter(name = "outputBBOX", description = "Bounding box for target image extent") ReferencedEnvelope outputEnv,
             @DescribeParameter(name = "outputWidth", description = "Target image width in pixels") Integer outputWidth,
             @DescribeParameter(name = "outputHeight", description = "Target image height in pixels") Integer outputHeight,
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/PointStackerProcess.java
             
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/PointStackerProcess.java
 
             ProgressListener monitor) throws ProcessException, TransformException {
 

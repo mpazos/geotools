@@ -52,7 +52,11 @@ import org.opengis.util.ProgressListener;
  * @source $URL$
  */
 @DescribeProcess(title = "Aggregate", description = "Computes one or more aggregation functions on a feature attribute. Functions include Count, Average, Max, Median, Min, StdDev, and Sum.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/AggregateProcess.java
 public class AggregateProcess implements VectorProcess {
+=======
+public class AggregateProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/AggregateProcess.java
     // the functions this process can handle
     public enum AggregationFunction {
         Count, Average, Max, Median, Min, StdDev, Sum;
@@ -76,7 +80,11 @@ public class AggregateProcess implements VectorProcess {
             @DescribeParameter(name = "features", description = "Input feature collection") SimpleFeatureCollection features,
             @DescribeParameter(name = "aggregationAttribute", min = 0, description = "Attribute on which to perform aggregation") String aggAttribute,
             @DescribeParameter(name = "function", description = "An aggregate function to compute. Functions include Count, Average, Max, Median, Min, StdDev, and Sum.", collectionType = AggregationFunction.class) Set<AggregationFunction> functions,
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/AggregateProcess.java
             @DescribeParameter(name = "singlePass", description = "If True computes all aggregation values in a single pass (this will defeat DBMS-specific optimizations)", defaultValue = "false") boolean singlePass,
+=======
+            @DescribeParameter(name = "singlePass", description = "If True computes all aggregation values in a single pass (this will defeat DBMS-specific optimizations)", min = 0) Boolean singlePass,
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/AggregateProcess.java
             ProgressListener progressListener) throws ProcessException, IOException {
 
         int attIndex = -1;

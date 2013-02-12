@@ -178,6 +178,44 @@ public class CollectionDataStore extends AbstractDataStore {
                     count++;
                 }
             }
+<<<<<<< HEAD
+=======
+        }
+        finally {
+            iterator.close();
+        }
+        return count;
+    }
+
+    /**
+     * Simple listener that forwards collection events into data store events
+     *
+     * @author aaime
+     */
+    private class FeatureCollectionListener implements CollectionListener {
+        public void collectionChanged(CollectionEvent tce) {
+            String typeName = featureType.getTypeName();
+            ReferencedEnvelope bounds = null;
+
+            bounds = getBoundsInternal(Query.ALL);
+
+            switch (tce.getEventType()) {
+            case CollectionEvent.FEATURES_ADDED:
+                listenerManager.fireFeaturesAdded(typeName, Transaction.AUTO_COMMIT, bounds, false);
+
+                break;
+
+            case CollectionEvent.FEATURES_CHANGED:
+                listenerManager.fireFeaturesChanged(typeName, Transaction.AUTO_COMMIT, bounds, false);
+
+                break;
+
+            case CollectionEvent.FEATURES_REMOVED:
+                listenerManager.fireFeaturesRemoved(typeName, Transaction.AUTO_COMMIT, bounds, false);
+
+                break;
+            }
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
         }
         finally {
             iterator.close();

@@ -62,7 +62,11 @@ import org.opengis.util.ProgressListener;
  * @source $URL$
  */
 @DescribeProcess(title = "Reclassify", description = "Reclassifies a continous raster into integer values defined by a set of ranges")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/RangeLookupProcess.java
 public class RangeLookupProcess implements RasterProcess {
+=======
+public class RangeLookupProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/RangeLookupProcess.java
 	
     private final static double DEFAULT_NODATA = 0d;
 	
@@ -144,7 +148,11 @@ public class RangeLookupProcess implements RasterProcess {
         pb.setSource("source0", sourceImage);
         pb.setParameter("table", lookupTable);
         final RenderedOp indexedClassification = JAI.create("RangeLookup", pb);
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/RangeLookupProcess.java
 
+=======
+        
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/RangeLookupProcess.java
         
         //
         // build the output coverage

@@ -46,13 +46,21 @@ import com.vividsolutions.jts.simplify.TopologyPreservingSimplifier;
  * @source $URL$
  */
 @DescribeProcess(title = "Simplify", description = "Simplifies feature geometry by reducing vertices using Douglas-Peucker simplification.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/SimplifyProcess.java
 public class SimplifyProcess implements VectorProcess {
+=======
+public class SimplifyProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/SimplifyProcess.java
 
     @DescribeResult(name = "result", description = "The simplified feature collection")
     public SimpleFeatureCollection execute(
             @DescribeParameter(name = "features", description = "Input feature collection") SimpleFeatureCollection features,
             @DescribeParameter(name = "distance", description = "Simplification distance tolerance") double distance,
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/SimplifyProcess.java
             @DescribeParameter(name = "preserveTopology", description = "If True, ensures that simplified features are topologically valid",  defaultValue = "false") boolean preserveTopology)
+=======
+            @DescribeParameter(name = "preserveTopology", description = "If True, ensures that simplified features are topologically valid", min = 0) Boolean preserveTopology)
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/SimplifyProcess.java
             throws ProcessException {
         if (distance < 0) {
             throw new ProcessException("Invalid distance, it should be a positive number");

@@ -47,7 +47,11 @@ import com.vividsolutions.jts.geom.Polygon;
  * @source $URL$
  */
 @DescribeProcess(title = "Grid", description = "Generates a georeferenced regular grid of cells.  Output contains the attributes: cell - the cell polygon; id - a unique identifier; centerX and centerY - the ordinates of the cell center.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/GridProcess.java
 public class GridProcess implements VectorProcess {
+=======
+public class GridProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/GridProcess.java
 
     public enum GridMode {
         Rectangular, HexagonFlat, HexagonAngled
@@ -59,7 +63,11 @@ public class GridProcess implements VectorProcess {
             @DescribeParameter(name = "width", description = "Width of a cell (in units of the grid CRS)") double width,
             @DescribeParameter(name = "height", description = "Height of a cell (in units of the grid CRS).  Only for rectangular grid, defaults to equal width.", min = 0) Double height,
             @DescribeParameter(name = "vertexSpacing", description = "Distance between vertices along cell sides (in units of the grid CRS)", min = 0) Double vertexSpacing,
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/GridProcess.java
             @DescribeParameter(name = "mode", description = "Type of grid to be generated.  Specifies shape of cells in grid.", defaultValue = "Rectangular") GridMode mode)
+=======
+            @DescribeParameter(name = "mode", description = "Type of grid to be generated.  Specifies shape of cells in grid.", min = 0) GridMode mode)
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/GridProcess.java
             throws ProcessException {
         final GridFeatureBuilder builder = new GridFeatureBuilderImpl(bounds
                 .getCoordinateReferenceSystem());

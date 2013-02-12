@@ -39,7 +39,11 @@ import com.vividsolutions.jts.geom.GeometryCollection;
  * @source $URL$
  */
 @DescribeProcess(title = "Collect Geometries", description = "Collects the deafult geometries of the input features and combines them into a single geometry collection")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/CollectGeometries.java
 public class CollectGeometries implements VectorProcess {
+=======
+public class CollectGeometries implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/CollectGeometries.java
 
     @DescribeResult(name = "result", description = "Geometry collection of all input geometries")
     public GeometryCollection execute(

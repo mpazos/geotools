@@ -85,7 +85,11 @@ import com.vividsolutions.jts.simplify.DouglasPeuckerSimplifier;
  * @author Andrea Aime - GeoSolutions
  */
 @DescribeProcess(title = "Raster Zonal Statistics", description = "Computes statistics for the distribution of a certain quantity in a set of polygonal zones.")
+<<<<<<< HEAD:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/RasterZonalStatistics.java
 public class RasterZonalStatistics implements RasterProcess {
+=======
+public class RasterZonalStatistics implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/gs/RasterZonalStatistics.java
 
     private final static CoverageProcessor PROCESSOR = CoverageProcessor.getInstance();
 

@@ -34,7 +34,11 @@ import org.geotools.process.factory.DescribeResult;
  * @source $URL$
  */
 @DescribeProcess(title = "Rectangular Clip", description = "Clips (crops) features to the specified rectangular extent")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/RectangularClipProcess.java
 public class RectangularClipProcess implements VectorProcess {
+=======
+public class RectangularClipProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/RectangularClipProcess.java
 
     @DescribeResult(name = "result", description = "Clipped feature collection")
     public SimpleFeatureCollection execute(

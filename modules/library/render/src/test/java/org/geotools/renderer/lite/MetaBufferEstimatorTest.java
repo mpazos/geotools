@@ -96,6 +96,7 @@ public class MetaBufferEstimatorTest {
         style.accept(estimator);
         assertFalse(estimator.isEstimateAccurate());
     }
+<<<<<<< HEAD
     
     @Test
     public void testInlineContent() throws Exception {
@@ -105,5 +106,7 @@ public class MetaBufferEstimatorTest {
         assertTrue(estimator.isEstimateAccurate());
         assertEquals(16, estimator.getBuffer());
     }
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 }

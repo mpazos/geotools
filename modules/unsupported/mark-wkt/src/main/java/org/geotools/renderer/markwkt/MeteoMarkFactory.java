@@ -101,7 +101,7 @@ public class MeteoMarkFactory implements MarkFactory {
         // cannot handle a null url
         if(symbolUrl == null)
             return null;
-
+ 
         // see if it's a shape
         if(LOGGER.isLoggable(Level.FINE)){
         	LOGGER.fine("Trying to resolve symbol:"+symbolUrl.toString());

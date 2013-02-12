@@ -200,9 +200,10 @@ public class CQLTemporalPredicateTest {
     @Test 
     public void dateTimeWithLocalTime() throws Exception{
                 
-        String localTime = "2008-09-09T17:00:00";
+        final String date = "2008-09-09";
+        final String time = "17:00:00";
 
-        Filter resultFilter = CompilerUtil.parseFilter(this.language, "ZONE_VALID_FROM BEFORE " + localTime);
+        Filter resultFilter = CompilerUtil.parseFilter(this.language, "ZONE_VALID_FROM BEFORE " + date+ "T" + time);
 
         Before comparation = (Before) resultFilter;
 
@@ -210,12 +211,17 @@ public class CQLTemporalPredicateTest {
         Expression expr2 = comparation.getExpression2();
         Literal literalDate = (Literal)expr2;
         
-        final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+        final DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        dateFormatter.setTimeZone(TimeZone.getDefault());
         
+<<<<<<< HEAD
         final DateFormat dateFormatter = new SimpleDateFormat(DATE_FORMAT);
         dateFormatter.setTimeZone(TimeZone.getDefault());
 
 		Date expectedDate = dateFormatter.parse(localTime);
+=======
+		Date expectedDate = dateFormatter.parse(date+ " " + time);
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
         Date actualDate = (Date) literalDate.getValue();
         
         Assert.assertEquals(expectedDate, actualDate);
@@ -227,9 +233,14 @@ public class CQLTemporalPredicateTest {
      * 
      * @throws Exception
      */
+<<<<<<< HEAD
     @Test 
     public void dateTimeWithOffset() throws Exception{
 
+=======
+	@Test
+	public void dateTimeWithOffset() throws Exception {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 		{
 			// test offset GMT+01:00
 			final DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssz");
@@ -237,7 +248,11 @@ public class CQLTemporalPredicateTest {
 			TimeZone tz = TimeZone.getTimeZone(offset);
 			dateFormatter.setTimeZone(tz);
 
+<<<<<<< HEAD
 			Filter resultFilter = CompilerUtil.parseFilter(this.language,"ZONE_VALID_FROM BEFORE 2008-09-09T17:00:00+01:00");
+=======
+			Filter resultFilter = CompilerUtil.parseFilter(this.language, "ZONE_VALID_FROM BEFORE 2008-09-09T17:00:00+01:00");
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 			Before comparation = (Before) resultFilter;
 
@@ -245,6 +260,7 @@ public class CQLTemporalPredicateTest {
 			Literal literalDate = (Literal) expr2;
 			Date actualDate = (Date) literalDate.getValue();
 
+<<<<<<< HEAD
 			Date expectedDate = dateFormatter.parse("2008-09-09 17:00:00 " +  offset);
 
 			Assert.assertEquals(expectedDate, actualDate);
@@ -260,12 +276,28 @@ public class CQLTemporalPredicateTest {
 
 	        Filter resultFilter = CompilerUtil.parseFilter(this.language, "ZONE_VALID_FROM BEFORE 2008-09-09T17:00:00-01:00");
 
+=======
+			Date expectedDate = dateFormatter.parse("2008-09-09 17:00:00 "+ offset);
+
+			Assert.assertEquals(expectedDate, actualDate);
+		}
+		{
+			// test offset GMT-01:00
+			final DateFormat dateFormatter = new SimpleDateFormat(
+					"yyyy-MM-dd HH:mm:ssz");
+			final String offset = "GMT+01:00";
+			TimeZone tz = TimeZone.getTimeZone(offset);
+			dateFormatter.setTimeZone(tz);
+			Filter resultFilter = CompilerUtil.parseFilter(this.language,
+					"ZONE_VALID_FROM BEFORE 2008-09-09T17:00:00-01:00");
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 			Before comparation = (Before) resultFilter;
 
 			Expression expr2 = comparation.getExpression2();
 			Literal literalDate = (Literal) expr2;
 			Date actualDate = (Date) literalDate.getValue();
+<<<<<<< HEAD
         
 			Date expectedDate = dateFormatter.parse("2008-09-09 17:00:00 " +  offset);
 
@@ -273,6 +305,13 @@ public class CQLTemporalPredicateTest {
 		}
     }
 
+=======
+			Date expectedDate = dateFormatter.parse("2008-09-09 17:00:00 "
+					+ offset);
+			Assert.assertEquals(expectedDate, actualDate);
+		}
+	}    
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
     /**
      * before with compound attribute
      * 

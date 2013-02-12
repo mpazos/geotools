@@ -25,6 +25,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TimeZone;
+<<<<<<< HEAD
+=======
+import java.util.logging.Logger;
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 
 import org.geotools.filter.IllegalFilterException;
 import org.geotools.filter.text.cql2.CQLException;
@@ -376,6 +380,7 @@ public abstract class AbstractFilterBuilder {
 	private Literal asLiteralDate(final String cqlDateTime) throws CQLException {
 
 		try {
+<<<<<<< HEAD
 			final String strDate = extractDate(cqlDateTime);
 			final String strTime = extractTime(cqlDateTime);
 			String timeZoneOffset = extractTimeZone(cqlDateTime);
@@ -388,10 +393,26 @@ public abstract class AbstractFilterBuilder {
 			if (!"".equals(timeZoneOffset)) {
 				if ("Z".equals(timeZoneOffset)) { // it is Zulu or 0000 zone (old syntax)
 					timeZoneOffset = "GMT+00:00";
+=======
+			
+			final String strDate = extractDate(cqlDateTime);
+			final String strTime = extractTime(cqlDateTime);
+			String timeZoneOffset = extractTimeZone(cqlDateTime);
+			
+			StringBuilder format = new StringBuilder( "yyyy-MM-dd" );
+			if(! "".equals(strTime)){
+			    format.append(" HH:mm:ss"); 
+			}
+ 			TimeZone tz = null;
+			if(! "".equals(timeZoneOffset)){
+				if("Z".equals(timeZoneOffset)){ // it is Zulu or 0000 zone (old syntax)
+ 					timeZoneOffset = "GMT+00:00";
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 				}
 				tz = TimeZone.getTimeZone(timeZoneOffset);
 			} else { // the time zone offset wasn't specified then the time zone is that provided by the host
 				tz = TimeZone.getDefault();
+<<<<<<< HEAD
 			}
 			DateFormat formatter = new SimpleDateFormat(format.toString());
 			formatter.setTimeZone(tz);
@@ -402,6 +423,18 @@ public abstract class AbstractFilterBuilder {
 			} else {
 				date = formatter.parse(strDate);
 			}
+=======
+ 			}
+			DateFormat formatter = new SimpleDateFormat(format.toString());
+			formatter.setTimeZone(tz);
+
+			Date date;
+			if(! "".equals(strTime)){
+				 date= formatter.parse(strDate + " "+ strTime);
+			} else {
+				 date= formatter.parse(strDate );
+			}
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 			Literal literalDate = filterFactory.literal(date);
 
 			return literalDate;

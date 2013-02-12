@@ -117,7 +117,11 @@ import com.vividsolutions.jts.geom.Geometry;
  * 
  */
 @DescribeProcess(title = "Heatmap", description = "Computes a heatmap surface over a set of data points and outputs as a single-band raster.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/HeatmapProcess.java
 public class HeatmapProcess implements VectorProcess {
+=======
+public class HeatmapProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-raster/src/main/java/org/geotools/process/raster/surface/HeatmapProcess.java
 
     @DescribeResult(name = "result", description = "Output raster")
     public GridCoverage2D execute(

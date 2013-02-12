@@ -15,8 +15,11 @@ import org.geotools.TestData;
 import org.geotools.data.FeatureSource;
 import org.geotools.data.Query;
 import org.geotools.data.property.PropertyDataStore;
+<<<<<<< HEAD
 import org.geotools.factory.GeoTools;
 import org.geotools.factory.Hints;
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 import org.geotools.filter.text.cql2.CQL;
 import org.geotools.filter.text.cql2.CQLException;
 import org.geotools.gce.geotiff.GeoTiffReader;
@@ -28,7 +31,10 @@ import org.geotools.map.MapContent;
 import org.geotools.referencing.CRS;
 import org.geotools.renderer.RenderListener;
 import org.geotools.styling.Style;
+<<<<<<< HEAD
 import org.junit.After;
+=======
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
 import org.junit.Before;
 import org.junit.Test;
 import org.opengis.feature.simple.SimpleFeature;

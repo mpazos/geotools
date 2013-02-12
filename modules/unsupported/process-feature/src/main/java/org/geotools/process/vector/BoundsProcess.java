@@ -31,7 +31,11 @@ import org.geotools.process.factory.DescribeResult;
  * @source $URL$
  */
 @DescribeProcess(title = "Bounds", description = "Computes the bounding box of the input features.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/BoundsProcess.java
 public class BoundsProcess implements VectorProcess {
+=======
+public class BoundsProcess implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/BoundsProcess.java
 
     @DescribeResult(name = "bounds", description = "Bounding box of input features")
     public ReferencedEnvelope execute(

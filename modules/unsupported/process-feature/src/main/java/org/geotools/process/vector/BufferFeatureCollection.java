@@ -52,7 +52,11 @@ import com.vividsolutions.jts.geom.MultiPolygon;
  * @source $URL$
  */
 @DescribeProcess(title = "Buffer", description = "Buffers features by a distance value supplied either as a parameter or by a feature attribute. Calculates buffers based on Cartesian distances.")
+<<<<<<< HEAD:modules/unsupported/process-feature/src/main/java/org/geotools/process/vector/BufferFeatureCollection.java
 public class BufferFeatureCollection implements VectorProcess {
+=======
+public class BufferFeatureCollection implements GSProcess {
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f:modules/unsupported/process-feature/src/main/java/org/geotools/process/feature/gs/BufferFeatureCollection.java
     @DescribeResult(description = "Buffered feature collection")
     public SimpleFeatureCollection execute(
             @DescribeParameter(name = "features", description = "Input feature collection") SimpleFeatureCollection features,

@@ -29,7 +29,11 @@ import org.opengis.geometry.Geometry;
  */
 public class FilterFunction_sdonn extends FunctionExpressionImpl implements VolatileFunction {
 
+<<<<<<< HEAD
     public static FunctionName NAME = new FunctionNameImpl("sdo_nn", String.class,
+=======
+    public static FunctionName NAME = new FunctionNameImpl("sdo_nn", Boolean.class,
+>>>>>>> d08fcaf271fa4e2da894285fe6ca73806724248f
             // required parameters:
             FunctionNameImpl.parameter("geometry", Geometry.class), 
             FunctionNameImpl.parameter("sdo_num_res", Integer.class), 
