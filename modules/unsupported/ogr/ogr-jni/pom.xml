@@ -74,11 +74,13 @@
       <artifactId>gt-ogr-core</artifactId>
       <version>${project.version}</version>
     </dependency>
+<!--     
     <dependency>
       <groupId>org.gdal</groupId>
       <artifactId>gdal</artifactId>
       <version>${gdal.version}</version>
     </dependency>
+ -->    
     <dependency>
       <groupId>org.geotools</groupId>
       <artifactId>gt-ogr-core</artifactId>
@@ -87,8 +89,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+     <!--  
   <properties>
     <gdal.version>1.8.1</gdal.version>
   </properties>
+   -->
 </project>
