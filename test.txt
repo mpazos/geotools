@@ -1,0 +1,15 @@
+build
+cql.patch
+docs
+GEOT-4298.patch
+geotools-logo.png
+licenses
+modules
+pom.xml
+pom.xml~
+README.html
+spike
+src
+target
+test.txt
+VERSION.txt
