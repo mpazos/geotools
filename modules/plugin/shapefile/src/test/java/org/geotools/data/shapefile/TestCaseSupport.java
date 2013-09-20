@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import org.geotools.TestData;
@@ -270,6 +271,6 @@ public class TestCaseSupport {
      * Returns the test suite for the given class.
      */
     public static Test suite(Class<?> c) {
-        return new TestSuite(c);
+        return new TestSuite((Class<? extends TestCase>) c);
     }
 }

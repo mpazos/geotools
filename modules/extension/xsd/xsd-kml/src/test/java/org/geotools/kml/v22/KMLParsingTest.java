@@ -6,6 +6,7 @@ import java.util.Map;
 import org.geotools.xml.Parser;
 import org.geotools.xml.PullParser;
 import org.geotools.xml.StreamingParser;
+import org.opengis.feature.Property;
 import org.opengis.feature.simple.SimpleFeature;
 import org.opengis.feature.simple.SimpleFeatureType;
 
@@ -51,10 +52,39 @@ public class KMLParsingTest extends KMLTestSupport {
         StreamingParser p = new StreamingParser(createConfiguration(), 
             getClass().getResourceAsStream("KML_Samples.kml"), KML.Placemark);
         int count = 0;
-        while(p.parse() != null) {
+        SimpleFeature f;
+        while((f = (SimpleFeature) p.parse()) != null) {
+        	
+        	System.out.println("Atributes > " +f.getAttributes());
+        	
             count++;
         }
         assertEquals(20, count);
+    }
+
+    public void testStreamParseAccident() throws Exception {
+    	
+        PullParser p = new PullParser(createConfiguration(), 
+            getClass().getResourceAsStream("kml_4326_accidents.kml"), KML.Placemark);
+        int count = 0;
+        SimpleFeature f;
+        f = (SimpleFeature) p.parse();
+        	
+		System.out
+				.println("------------------------------------------------------------------------------");
+		System.out.println("Atributes > " + f.getValue());
+
+		System.out.println("Properies > " + f.getProperties());
+		System.out.println("Atributes > " + f.getAttributes());
+		for (Property prop : f.getProperties()) {
+			System.out.println("Property: " + prop.getName() + " --> "+  prop.getValue());
+		}
+		
+		assertNotNull(f.getAttribute("id"));
+		assertNotNull(f.getAttribute("date"));
+		assertNotNull(f.getAttribute("plage_hora"));        	
+        	
+        assertEquals(34, f.getAttributes().size());
     }
 
     public void testPullParse() throws Exception {
