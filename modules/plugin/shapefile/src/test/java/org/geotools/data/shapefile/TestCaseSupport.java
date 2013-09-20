@@ -274,6 +274,6 @@ public class TestCaseSupport extends TestCase {
      * Returns the test suite for the given class.
      */
     public static Test suite(Class<?> c) {
-        return new TestSuite(c);
+        return new TestSuite((Class<? extends TestCase>) c);
     }
 }
