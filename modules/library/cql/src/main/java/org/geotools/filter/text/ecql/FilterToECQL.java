@@ -67,278 +67,292 @@ import org.opengis.filter.temporal.TOverlaps;
  * This class is responsible to transform a filter to an ECQL predicate.
  * 
  * @author Mauricio Pazos
- *
+ * 
  */
 final class FilterToECQL implements FilterVisitor {
 
-	
-	@Override
-	public Object visitNullFilter(Object extraData) {
-		throw new NullPointerException("Cannot encode null as a Filter");
-	}
+    @Override
+    public Object visitNullFilter(Object extraData) {
+        throw new NullPointerException("Cannot encode null as a Filter");
+    }
 
-	@Override
-	public Object visit(ExcludeFilter filter, Object extraData) {
-        
+    @Override
+    public Object visit(ExcludeFilter filter, Object extraData) {
+
         return FilterToTextUtil.buildExclude(extraData);
-	}
+    }
 
-	@Override
-	public Object visit(IncludeFilter filter, Object extraData) {
+    @Override
+    public Object visit(IncludeFilter filter, Object extraData) {
         return FilterToTextUtil.buildInclude(extraData);
-	}
+    }
 
-	@Override
-	public Object visit(And filter, Object extraData) {
-    	return FilterToTextUtil.buildBinaryLogicalOperator("AND", this, filter, extraData);
-	}
+    @Override
+    public Object visit(And filter, Object extraData) {
+        return FilterToTextUtil.buildBinaryLogicalOperator("AND", this, filter,
+                extraData);
+    }
 
-	/**
-	 * builds a ecql id expression: in (id1, id2, ...)
-	 */
-	@Override
-	public Object visit(Id filter, Object extraData) {
+    /**
+     * builds a ecql id expression: in (id1, id2, ...)
+     */
+    @Override
+    public Object visit(Id filter, Object extraData) {
 
-		StringBuilder ecql = FilterToTextUtil.asStringBuilder(extraData);
-		ecql.append("IN (");
+        StringBuilder ecql = FilterToTextUtil.asStringBuilder(extraData);
+        ecql.append("IN (");
 
-		Iterator<Identifier> iter= filter.getIdentifiers().iterator();
-		while(iter.hasNext()) {
+        Iterator<Identifier> iter = filter.getIdentifiers().iterator();
+        while (iter.hasNext()) {
 
-			Identifier identifier = iter.next();
-			
-			// id could be string or integer
-			if( identifier.getID() instanceof String ){
-	            
-			    try{
-			        // checks if it is an integer.
-	                String idValue = (String)identifier.getID();
-	                Integer.parseInt(idValue);
+            Identifier identifier = iter.next();
+
+            // id could be string or integer
+            if (identifier.getID() instanceof String) {
+                try {
+                    // checks if it is an integer.
+                    String idValue = (String) identifier.getID();
+                    Integer.parseInt(idValue);
                     ecql.append(identifier);
 
-			    } catch(NumberFormatException e){
-			        // it is a string 
+                } catch (NumberFormatException e) {
+                    // it is a string
                     ecql.append("'").append(identifier.getID()).append("'");
-			    }
+                }
 
-			    
-			} else if ( identifier.getID() instanceof Integer ){
+            } else if (identifier.getID() instanceof Integer) {
                 ecql.append(identifier);
-			    
-		    } else{
-		        throw new IllegalStateException("Unexpected. Id value should be String or Integer");
-		    }
-			if(iter.hasNext()){
-				ecql.append(",");
-			}
-		}
-	    ecql.append(")");
 
-		return ecql.toString();
-	}
+            } else {
+                throw new IllegalStateException(
+                        "Unexpected. Id value should be String or Integer");
+            }
+            if (iter.hasNext()) {
+                ecql.append(",");
+            }
+        }
+        ecql.append(")");
 
-	/**
-	 * builds the Not logical operator
-	 */
-	@Override
-	public Object visit(Not filter, Object extraData) {
-		return FilterToTextUtil.buildNot(this, filter, extraData);
-	}
+        return ecql.toString();
+    }
 
+    /**
+     * builds the Not logical operator
+     */
+    @Override
+    public Object visit(Not filter, Object extraData) {
+        return FilterToTextUtil.buildNot(this, filter, extraData);
+    }
 
-	/**
-	 * builds the OR logical operator
-	 */
-	@Override
-	public Object visit(Or filter, Object extraData) {
-    	return FilterToTextUtil.buildBinaryLogicalOperator("OR", this, filter, extraData);
-	}
+    /**
+     * builds the OR logical operator
+     */
+    @Override
+    public Object visit(Or filter, Object extraData) {
+        return FilterToTextUtil.buildBinaryLogicalOperator("OR", this, filter,
+                extraData);
+    }
 
-	/**
-	 * builds the BETWEEN predicate
-	 */
-	@Override
-	public Object visit(PropertyIsBetween filter, Object extraData) {
-    	return FilterToTextUtil.buildBetween(filter, extraData);
-	}
+    /**
+     * builds the BETWEEN predicate
+     */
+    @Override
+    public Object visit(PropertyIsBetween filter, Object extraData) {
+        return FilterToTextUtil.buildBetween(filter, extraData);
+    }
 
-	@Override
-	public Object visit(PropertyIsEqualTo filter, Object extraData) {
-		return FilterToTextUtil.buildComparison(filter, extraData, "=");
-	}
+    @Override
+    public Object visit(PropertyIsEqualTo filter, Object extraData) {
+        return FilterToTextUtil.buildComparison(filter, extraData, "=");
+    }
 
-	@Override
-	public Object visit(PropertyIsNotEqualTo filter, Object extraData) {
-    	return FilterToTextUtil.buildComparison(filter, extraData, "!=");
-	}
+    @Override
+    public Object visit(PropertyIsNotEqualTo filter, Object extraData) {
+        return FilterToTextUtil.buildComparison(filter, extraData, "!=");
+    }
 
-	@Override
-	public Object visit(PropertyIsGreaterThan filter, Object extraData) {
+    @Override
+    public Object visit(PropertyIsGreaterThan filter, Object extraData) {
         return FilterToTextUtil.buildComparison(filter, extraData, ">");
-	}
+    }
 
-	@Override
-	public Object visit(PropertyIsGreaterThanOrEqualTo filter, Object extraData) {
+    @Override
+    public Object visit(PropertyIsGreaterThanOrEqualTo filter, Object extraData) {
         return FilterToTextUtil.buildComparison(filter, extraData, ">=");
-	}
+    }
 
-	@Override
-	public Object visit(PropertyIsLessThan filter, Object extraData) {
+    @Override
+    public Object visit(PropertyIsLessThan filter, Object extraData) {
         return FilterToTextUtil.buildComparison(filter, extraData, "<");
-	}
+    }
 
-	@Override
-	public Object visit(PropertyIsLessThanOrEqualTo filter, Object extraData) {
+    @Override
+    public Object visit(PropertyIsLessThanOrEqualTo filter, Object extraData) {
         return FilterToTextUtil.buildComparison(filter, extraData, "<=");
-	}
+    }
 
-	@Override
-	public Object visit(PropertyIsLike filter, Object extraData) {
-    	return FilterToTextUtil.buildIsLike(filter, extraData);
-	}
+    @Override
+    public Object visit(PropertyIsLike filter, Object extraData) {
+        return FilterToTextUtil.buildIsLike(filter, extraData);
+    }
 
-	@Override
-	public Object visit(PropertyIsNull filter, Object extraData) {
-    	return FilterToTextUtil.buildIsNull(filter, extraData);
-	}
+    @Override
+    public Object visit(PropertyIsNull filter, Object extraData) {
+        return FilterToTextUtil.buildIsNull(filter, extraData);
+    }
 
-	@Override
-	public Object visit(PropertyIsNil filter, Object extraData) {
-	throw new UnsupportedOperationException("PropertyIsNil not supported");
-	}
+    @Override
+    public Object visit(PropertyIsNil filter, Object extraData) {
+        throw new UnsupportedOperationException("PropertyIsNil not supported");
+    }
 
-	@Override
-	public Object visit(BBOX filter, Object extraData) {
-    	return FilterToTextUtil.buildBBOX(filter, extraData);
-	}
+    @Override
+    public Object visit(BBOX filter, Object extraData) {
+        return FilterToTextUtil.buildBBOX(filter, extraData);
+    }
 
-	@Override
-	public Object visit(Beyond filter, Object extraData) {
-    	return FilterToTextUtil.buildDistanceBufferOperation("BEYOND", filter, extraData);
-	}
+    @Override
+    public Object visit(Beyond filter, Object extraData) {
+        return FilterToTextUtil.buildDistanceBufferOperation("BEYOND", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Contains filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("CONTAINS", filter, extraData);
-	}
+    @Override
+    public Object visit(Contains filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("CONTAINS", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Crosses filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("CROSSES", filter, extraData);
-	}
+    @Override
+    public Object visit(Crosses filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("CROSSES", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Disjoint filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("DISJOINT", filter, extraData);
-	}
+    @Override
+    public Object visit(Disjoint filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("DISJOINT", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(DWithin filter, Object extraData) {
-    	return FilterToTextUtil.buildDWithin(filter, extraData);
-	}
+    @Override
+    public Object visit(DWithin filter, Object extraData) {
+        return FilterToTextUtil.buildDWithin(filter, extraData);
+    }
 
-	@Override
-	public Object visit(Equals filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("EQUALS", filter, extraData);
-	}
+    @Override
+    public Object visit(Equals filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("EQUALS", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Intersects filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("INTERSECTS", filter, extraData);
-	}
+    @Override
+    public Object visit(Intersects filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("INTERSECTS",
+                filter, extraData);
+    }
 
-	@Override
-	public Object visit(Overlaps filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("OVERLAPS", filter, extraData);
-	}
+    @Override
+    public Object visit(Overlaps filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("OVERLAPS", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Touches filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("TOUCHES", filter, extraData);
-	}
+    @Override
+    public Object visit(Touches filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("TOUCHES", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(Within filter, Object extraData) {
-    	return FilterToTextUtil.buildBinarySpatialOperator("WITHIN", filter, extraData);
-	}
+    @Override
+    public Object visit(Within filter, Object extraData) {
+        return FilterToTextUtil.buildBinarySpatialOperator("WITHIN", filter,
+                extraData);
+    }
 
-	@Override
-	public Object visit(After after, Object extraData) {
-    	return FilterToTextUtil.buildBinaryTemporalOperator("AFTER", after, extraData);
-	}
-	@Override
-	public Object visit(Before before, Object extraData) {
-    	return FilterToTextUtil.buildBinaryTemporalOperator("BEFORE", before, extraData);
-	}
+    @Override
+    public Object visit(After after, Object extraData) {
+        return FilterToTextUtil.buildBinaryTemporalOperator("AFTER", after,
+                extraData);
+    }
 
-	@Override
-	public Object visit(AnyInteracts anyInteracts, Object extraData) {
-		throw ecqlUnsupported("AnyInteracts"); 
-	}
+    @Override
+    public Object visit(Before before, Object extraData) {
+        return FilterToTextUtil.buildBinaryTemporalOperator("BEFORE", before,
+                extraData);
+    }
 
+    @Override
+    public Object visit(AnyInteracts anyInteracts, Object extraData) {
+        throw ecqlUnsupported("AnyInteracts");
+    }
 
-	@Override
-	public Object visit(Begins begins, Object extraData) {
-		throw ecqlUnsupported("Begins"); 
-	}
+    @Override
+    public Object visit(Begins begins, Object extraData) {
+        throw ecqlUnsupported("Begins");
+    }
 
-	@Override
-	public Object visit(BegunBy begunBy, Object extraData) {
-        throw ecqlUnsupported("BegunBy");   
-	}
+    @Override
+    public Object visit(BegunBy begunBy, Object extraData) {
+        throw ecqlUnsupported("BegunBy");
+    }
 
-	/**
-	 * New instance of unsupported exception with the name of filter
-	 * @param filterName filter unsupported
-	 * @return UnsupportedOperationException
-	 */
-	static private UnsupportedOperationException ecqlUnsupported(final String filterName){
-		return new UnsupportedOperationException("The"+ filterName + " has not an ECQL expression");
-	}
-	
-	@Override
-	public Object visit(During during, Object extraData) {
-    	return FilterToTextUtil.buildDuring(during, extraData);
-	}
+    /**
+     * New instance of unsupported exception with the name of filter
+     * 
+     * @param filterName
+     *            filter unsupported
+     * @return UnsupportedOperationException
+     */
+    static private UnsupportedOperationException ecqlUnsupported(
+            final String filterName) {
+        return new UnsupportedOperationException("The" + filterName
+                + " has not an ECQL expression");
+    }
 
-	@Override
-	public Object visit(EndedBy endedBy, Object extraData) {
-		throw ecqlUnsupported("EndedBy"); 
-	}
+    @Override
+    public Object visit(During during, Object extraData) {
+        return FilterToTextUtil.buildDuring(during, extraData);
+    }
 
-	@Override
-	public Object visit(Ends ends, Object extraData) {
-		throw ecqlUnsupported("EndedBy"); 
-	}
+    @Override
+    public Object visit(EndedBy endedBy, Object extraData) {
+        throw ecqlUnsupported("EndedBy");
+    }
 
-	@Override
-	public Object visit(Meets meets, Object extraData) {
-		throw ecqlUnsupported("Meets"); 
-	}
+    @Override
+    public Object visit(Ends ends, Object extraData) {
+        throw ecqlUnsupported("EndedBy");
+    }
 
-	@Override
-	public Object visit(MetBy metBy, Object extraData) {
-		throw ecqlUnsupported("MetBy"); 
-	}
+    @Override
+    public Object visit(Meets meets, Object extraData) {
+        throw ecqlUnsupported("Meets");
+    }
 
-	@Override
-	public Object visit(OverlappedBy overlappedBy, Object extraData) {
-		throw ecqlUnsupported("OverlappedBy"); 
-	}
+    @Override
+    public Object visit(MetBy metBy, Object extraData) {
+        throw ecqlUnsupported("MetBy");
+    }
 
-	@Override
-	public Object visit(TContains contains, Object extraData) {
-		throw ecqlUnsupported("TContains"); 
-	}
+    @Override
+    public Object visit(OverlappedBy overlappedBy, Object extraData) {
+        throw ecqlUnsupported("OverlappedBy");
+    }
 
-	@Override
-	public Object visit(TEquals equals, Object extraData) {
-		throw ecqlUnsupported("TContains"); 
-	}
+    @Override
+    public Object visit(TContains contains, Object extraData) {
+        throw ecqlUnsupported("TContains");
+    }
 
-	@Override
-	public Object visit(TOverlaps contains, Object extraData) {
-		throw ecqlUnsupported("TContains"); 
-	}
+    @Override
+    public Object visit(TEquals equals, Object extraData) {
+        throw ecqlUnsupported("TContains");
+    }
+
+    @Override
+    public Object visit(TOverlaps contains, Object extraData) {
+        throw ecqlUnsupported("TContains");
+    }
 
 }
