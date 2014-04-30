@@ -106,13 +106,34 @@ final class FilterToECQL implements FilterVisitor {
 		while(iter.hasNext()) {
 
 			Identifier identifier = iter.next();
-			ecql.append(identifier);
 			
+			// id could be string or integer
+			if( identifier.getID() instanceof String ){
+	            
+			    try{
+			        // checks if it is an integer.
+	                String idValue = (String)identifier.getID();
+	                Integer.parseInt(idValue);
+                    ecql.append(identifier);
+
+			    } catch(NumberFormatException e){
+			        // it is a string 
+                    ecql.append("'").append(identifier.getID()).append("'");
+			    }
+
+			    
+			} else if ( identifier.getID() instanceof Integer ){
+                ecql.append(identifier);
+			    
+		    } else{
+		        throw new IllegalStateException("Unexpected. Id value should be String or Integer");
+		    }
 			if(iter.hasNext()){
 				ecql.append(",");
 			}
 		}
-		ecql.append(")");
+	    ecql.append(")");
+
 		return ecql.toString();
 	}
 

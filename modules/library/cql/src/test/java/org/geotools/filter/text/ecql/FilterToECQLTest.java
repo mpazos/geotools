@@ -36,9 +36,20 @@ import org.opengis.filter.Filter;
 public class FilterToECQLTest extends FilterToCQLTest {
 
 	@Test
-	public void id()throws Exception{
+	public void idPredicateInteger()throws Exception{
 		cqlTest("IN (1,2,3,4)");
 	}
+
+	@Test
+    public void idPredicateString()throws Exception{
+        cqlTest("IN ('states.1','states.2','states.3','states.4')");
+    }
+	
+    @Test
+    public void inPredicateWithInteger()throws Exception{
+        cqlTest("length IN (4100001,4100002, 4100003 )");
+        
+    }
 	
 	public void intersectWhithGeomExpressions() throws Exception {
     	cqlTest("INTERSECTS(POLYGON((1 2, 2 2, 2 3, 1 2)), POINT(1 2))");
